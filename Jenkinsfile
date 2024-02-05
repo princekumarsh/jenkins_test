@@ -10,7 +10,8 @@ pipeline {
 
         stage('Upload to AWS Agent') {
             steps {
-                sh 'scp -i /home/princekumar/Downloads/test-key-pair.pem -r * ubuntu@13.201.47.237:/usr/share/nginx/html' // Replace with your AWS agent IP and destination path
+                //sh 'scp -i /home/princekumar/Downloads/test-key-pair.pem -r * ubuntu@13.201.47.237:/usr/share/nginx/html' // Replace with your AWS agent IP and destination path
+                 sh 'scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/princekumar/Downloads/test-key-pair.pem -r * ubuntu@13.201.47.237:/usr/share/nginx/html'
             }
         }
 
